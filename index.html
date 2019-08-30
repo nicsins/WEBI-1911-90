@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<H1>WEBI 1911 Client-Side Scripting - Nic Beltrante</H1>
+<img src="img/sugarnics.png" alt="me in mask" height="250" width="250">
+<div><h2>Week 1 Project Part 1 - alert method</h2>
+
+    <button id="alert">Click Me</button></div>
+<script>
+    let alert1 =document.getElementById('alert');
+
+    alert1.innerHTML='please click the button';
+
+    let alertText="You Clicked The Button";
+
+    alert1.addEventListener('click',function () {
+        alert('you clicked the button !');
+        alert1.innerHTML='The button was clicked'
+    })
+</script>
+<div>
+    <h2>Week 1 Project Part 2 - document.write method with external js</h2>
+
+    <script language="JavaScript" src="weekly-js/week1-external.js"></script>
+</div>
+<div><img src="img/week1js.PNG" alt="week 1 js"> week 1 freecodecamp</div>
+
+</body>
+</html>
