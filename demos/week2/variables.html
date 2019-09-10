@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Variables</title>
+</head>
+<body>
+
+<script>
+    /*what are variables?- container that stores information
+    JS naming rules
+    1 can start with upper or lowercase  $ or _
+    2. can  include numbers but not as 1st char
+    3. var are case sensitive
+    4. avoid  reserved words
+    5 no spaces */
+    // variables of type string
+    var first_name ="Nic";
+    var last_name ="Beltrante";
+    var myBr="<br>";
+    document.write(first_name);
+    document.write(myBr);
+    document.write(last_name);
+    // variables amd string literals can be combined concatenation
+    var fullname = "<h3>"+first_name+" "+last_name+"</h3>";
+    document.write(fullname);
+    // numbers
+    var num1 = 3;
+    var num2 = 24;
+    var num3 = num1 + num2;
+    document.write(num3);
+    document.write(myBr);
+    num3 = num3 +5;
+    document.write(num3);
+    var my_img="wolf.jpg";
+    //<div><img src="wolf.jpg" alt="wolf"></div>
+
+    var my_img1 = "<div><img src=\""+my_img+"\" alt=\"wolf\"></div>";
+    var my_img2 = '<div><img src="'+my_img+'" alt="wolf"></div>';
+
+    document.write(my_img1);
+    document.write(my_img2);
+
+    var myVar;
+    document.write(myVar);//undefined
+    document.write(myBr);
+    var myVar2=null;
+    document.write(myVar2);
+
+
+
+</script>
+
+</body>
+</html>
