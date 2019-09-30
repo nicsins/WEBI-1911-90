@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>project1 browser and os </title>
+    <script>
+
+
+
+    var browser;
+    var info= navigator.userAgent;
+    alert (info);
+    if (browser === info.indexOf("Chrome")) {
+        document.write("<link rel=\"stylesheet\" href=\"../css/macchrome.css\">");
+
+    } else if (browser === info.indexOf("Edge")) {
+        document.write("<link rel=\"stylesheet\" href=\"../css/macsafari.css\">");
+        browser.innerHTML = "you are using edge";
+    } else if (browser === info.indexOf("Firefox")) {
+        document.write("<link rel=\"stylesheet\" href=\"../css/macff.css\">");
+        document.querySelector("h3").innerHTML = "you are using firefox";
+    } else {
+        document.write("<link rel=\"stylesheet\" href=\"../css/other.css\">");
+    }
+    </script>
+    <!--    <script>-->
+
+
+
+    <!--var browser;-->
+    <!--var info= navigator.userAgent;-->
+    <!--alert (info);-->
+    <!--switch (browser){-->
+        <!--case  info.indexOf("Win")!= -1 &&  info.indexOf("Firefox") != -1 :-->
+
+        <!--document.write("<link rel=\"stylesheet\" href=\"../css/macff.css\">");-->
+        <!--document.querySelector("h3").innerHTML="you are using firefox";-->
+        <!--break;-->
+
+        <!--case info.indexOf("Win")!= -1 &&  info.indexOf("Edge") != -1 :-->
+
+        <!--document.write("<link rel=\"stylesheet\" href=\"../css/macsafari.css\">");-->
+            <!--browser.innerHTML="you are using firefox"-->
+        <!--break;-->
+
+
+        <!--case info.indexOf("Win")!= -1 &&  info.indexOf("Chrome") != -1 :-->
+
+        <!--document.write("<link rel=\"stylesheet\" href=\"../css/macchrome.css\">");-->
+        <!--break;-->
+
+
+
+        <!--default:-->
+        <!--document.write("<link rel=\"stylesheet\" href=\"../css/other.css\">");-->
+
+    <!---  }</script>--->
+
+
+
+</head>
+<body>
+<h3> some type </h3>
+<h2 id="browser"></h2>
+
+
+</body>
+</html>

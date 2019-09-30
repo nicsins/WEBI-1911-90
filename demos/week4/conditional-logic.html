@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>conditional logic</title>
+</head>
+<body>
+<script>
+    // = is an assignment operator
+    var myBool = true;    // == and === are comparison operators
+   // if ( myBool==true){
+    if (myBool){
+        document.write("mybool is true <br>");
+    }
+
+
+    if (!myBool){
+        document.write("mybool is false <br>");
+    }
+    var x= "20";
+
+    if (x==20){
+ document.write("the value of x is 20<br>");
+    }
+    //test value and datatye
+    if (x===20){
+        document.write("the value of x is 20 and dayatype number <br>");
+    }
+    else {
+        document.write("20 is a string not a value <br>");
+    }
+
+    if (x===30){
+        document.write("thre value of x is thirty");
+    }
+    else if (myBool) {
+        document.write("mybool is true <br>");
+    }
+    else   {
+    document.write("no conditions are true <br>");
+    }
+
+    if (myBool==true && x===20){
+        document.write("mybool is true and x is 20<br>");
+    }
+    if (myBool==false ||x===20){
+        document.write("mybool is false or   x is 20 ||<br>");
+    }
+    // conditional ternary operqator
+    var pet =prompt("please enter dog or cat");
+     var greeting =(pet ==="cat")?"Dear cat owner":"Dear dog ownert";
+     document.write( greeting);
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

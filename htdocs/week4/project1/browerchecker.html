@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>project1 browser and os </title>
+    <script>
+
+
+    var info= navigator.userAgent;
+
+        if (info.indexOf("Win")!== -1 &&  info.indexOf("Firefox") !== -1){
+
+        document.write("<link rel=\"stylesheet\" href=\"../css/macff.css\">");
+        document.write("<h3>you are using firefox </h3>");
+    }
+    else if ( info.indexOf("Edge") !== -1){
+
+        document.write("<link rel=\"stylesheet\" href=\"../css/macsafari.css\">");
+        document.write("<h3>you are using Edge </h3>");
+
+    }
+    else if ( info.indexOf("Chrome") !== -1){
+
+        document.write("<link rel=\"stylesheet\" href=\"../css/macchrome.css\">");
+        document.write("<h3>you are using Chrome </h3>")
+
+    }
+
+    else {
+        document.write("<link rel=\"stylesheet\" href=\"../css/other.css\">");
+        document.write("<h3>we are unsure what the browser is </h3>");
+
+    }
+    document.write("<h2>and</h2>");
+    if ( info.indexOf("Win" !== -1)) {
+        document.write("<h2>your operating system is windows</h2>");
+    } else if (info.indexOf("Mac")!== -1) {
+        document.write("<h2>your operating system is mac</h2>");
+    } else if ( info.indexOf("linux") !==-1) {
+        document.write("<h2>your operating system is linux</h2></h2>");
+    }
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
