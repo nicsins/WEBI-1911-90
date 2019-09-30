@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>javascript form validation</title>
+    <script>
+        function checkMe () {
+// alert("event working")
+            var error="";
+            if (document.getElementById('myname').value==""){
+                error=' PLease enter your name \n'
+            }
+            if (document.getElementById('address').value==""){
+                error +=' PLease enter your address \n'
+            }
+            if (document.getElementById('city').value==""){
+                error +=' PLease enter your city \n'
+            }
+            if (document.getElementById('state').selectedIndex==0){
+                error +=' PLease enter your state mN or WI \n'
+            }
+            if (document.getElementById('zip').value==""){
+                error+=' PLease enter your zipcode \n'
+            }
+            if (document.getElementById('phone').value==""){
+                error+=' PLease enter your phone number \n'
+            }
+            if (document.getElementById('email').value==""){
+                error+=' PLease enter your email \n'
+            }
+            if (document.getElementById('comments').value==""){
+                error==' PLease enter your comments\n'
+            }
+            if (document.getElementById('free').selectedIndex==-1){
+                error +=' PLease enter your terms \n'
+            }
+            if (document.getElementById('terms').checked==true){
+                error+=' PLease check that you agree\n'
+            }
+
+
+            if (error==""){
+                return true
+            }
+            else{
+                alert(error);
+                return false  ;
+            }
+        }
+    </script>
+
+<!-- styles for form -->
+<style type="text/css">
+fieldset {width: 400px;}
+
+/* zero ul and li */
+fieldset ul, fieldset li{
+border:0; margin:0; padding:0; list-style-type:none;
+}
+
+/* li is a block level element. give margin bottom for spacing. */
+fieldset li
+{
+	margin-bottom: 10px;
+}
+
+/* label is a inline element. convert to inline block to prevent wrapping to next line but still apply width. */
+fieldset label{
+width:140px;
+display: inline-block;
+}
+
+/* set radio button labels back to default */
+label.radios
+{
+width:100%;
+display: inline;
+}
+
+/* take lblnotes out of document flow, aligns to top */
+#lblnotes {float: left;}
+
+</style>
+</head>
+
+<body>
+<fieldset>
+<legend>Sign-up Form</legend>
+<form id="the_form" onsubmit="return checkMe()" name="the_form" action="FormProcessor.html" method="get">
+<ul>
+<li><label for="myname">Name</label>
+<input type="text" name="myname" id="myname" size="30" />
+</li>
+<li><label for="address">Street Address</label>
+<input type="text" name="address" id="address" size="30" />
+</li>
+<li><label for="city">City</label>
+<input type="text" name="city" id="city" size="30" />
+</li>
+<li><label for="state">State</label>
+<select name="state" id="state">
+<option value="none">choose a state</option>
+<option value="MN">Minnesota</option>
+<option value="WI">Wisconsin</option>
+</select>
+</li>
+<li><label for="zip">Zip</label>
+<input type="text" name="zip" id="zip" size="30" />
+</li>
+<li><label for="phone">Phone Number</label>
+<input type="text" name="phone" id="phone" size="30" />
+</li>
+<li><label for="email">Email</label>
+<input type="text" name="email" id="email" size="30" />
+</li>
+
+<li><label for="comments" id="lblnotes">Commments</label>
+<textarea name="comments" id="comments" cols="20" rows="5"></textarea>
+</li>
+
+<li><label>Subscription</label> <label for="free" class="radios">Free</label>
+<input type="radio" name="subscription" id="free"/>
+
+<label for="paid" class="radios">Paid</label>
+<input type="radio" name="subscription" id="paid"/>
+</li>
+
+<li>
+<label for="terms">Do you agree to terms?</label>
+<input type="checkbox" name="terms" id="terms"/>
+</li>
+
+<li><label for="submit">&nbsp;</label>
+<button type="submit" id="submit">Send</button> </li>
+</ul>
+</form>
+</fieldset>
+
+</body>
+</html>
