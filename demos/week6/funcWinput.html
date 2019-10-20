@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>funcWinput</title>
+
+    <script>
+
+
+        function myAdder(){
+           var num1= document.getElementById('num_1').value;
+           var num2=  document.getElementById('num_2').value;
+            var total=Number(num1)+  Number(num2);
+            if (isNaN(total)){
+                alert('please enter a number')
+            }else{
+                document.getElementById('num_3').value=total
+         //alert( total);}
+        }}
+
+    </script>
+</head>
+<body>
+<form ><input type="text" size="4"  id="num_1">+
+                <input type="text" size="4"  id="num_2" >=
+                <input type="text" size="4"  id="num_3">
+    <input type="button" value="add" onclick="myAdder()"></form>
+
+</body>
+</html>
