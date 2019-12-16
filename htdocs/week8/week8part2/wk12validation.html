@@ -21,7 +21,7 @@ $(document).ready(function() {
 
 
     function validate() {
-        $('#the_form').submit(function(e) {
+        $('#the_form').submit(function (e) {
             e.preventDefault();
             var myname = $('#myname').val();
             var address = $('#address').val();
@@ -31,7 +31,7 @@ $(document).ready(function() {
             var info = $('#info').val();
             var city = $('#city').val();
             var state = $('#state').val();
-            var activities=$('#activities').val();
+            var activities = $('#activities').val();
 
             $(".error").remove();
 
@@ -41,9 +41,11 @@ $(document).ready(function() {
 
             if (address.length < 1) {
                 $('#address').after('<span class="error">This field is required</span>');
-            }  if (city.length < 1) {
+            }
+            if (city.length < 1) {
                 $('#city').after('<span class="error">This field is required</span>');
-            }  if (state.length < 1) {
+            }
+            if (state.length < 1) {
                 $('#state').after('<span class="error">This field is required</span>');
             }
             if (zip.length < 5) {
@@ -59,35 +61,33 @@ $(document).ready(function() {
                 }
             }
 
-            if (phone.length < 1 ) {
+            if (phone.length < 1) {
                 $('#phone').after('<span class="error">Enter valid phone number </span>');
-            }
-            else{
-            var PhoneRegEx = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-            var validEPhone = PhoneRegEx.test(phone);
-            if (!validEPhone) {
-                $('#phone').after('<span class="error">Enter a valid phone number</span>');
-        }
-            if(!info.checked){
-                $('#activities').hide(this);
-            }
-            else {
-                $(activities).slideDown(this);
-            }
-            if(!activities.checked.onsubmit <1){
-                $('#activities').after('<span class="error">please check one of these items</span>')
-            }
-            }
+            } else {
+                var PhoneRegEx = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+                var validEPhone = PhoneRegEx.test(phone);
+                if (!validEPhone) {
+                    $('#phone').after('<span class="error">Enter a valid phone number</span>');
+                }
+                if (!info.checked) {
+                    $('#activities').hide(this);
+                } else {
+                    $(activities).slideDown(this);
+                }
+                if (!activities.checked.onsubmit < 1) {
+                    $('#activities').after('<span class="error">please check one of these items</span>')
+                }
             }
 
 
-    });
-
-
-
-
+        });
+    };
 
 });
+
+
+
+
 </script>
 <!-- styles for form -->
 <style type="text/css">
