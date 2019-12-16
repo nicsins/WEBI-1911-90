@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>week3 project 2</title>
+</head>
+<body>
+<script>
+
+
+      //todo  Create two empty arrays, one named scores and the other named opponents.
+      var scores=[];
+      var opponents=[];
+
+      //todo  Prompt the user once for the name of their favorite sports team and save the value to a variable of type string.
+    var favTeam = prompt("what is your favorite team?");
+       //todo Prompt the user for the name of their favorite teams 1st opponent of the season followed by a second prompt for the score including a W or L indicating if their favorite team won or lost the game.
+      var i;
+      for (i = 0; i < 4; i++) {
+          opponents.push(prompt("please enter your teams opponent number "+ Number(i+1)));
+          scores.push((prompt("please enter the score of the game including a W or L indicating if your favorite team won or lost the game")));
+      }
+
+      // todo   Use the push() method to add the opponent to the opponents array and the score including the W or L to the scores array.
+
+    // todo   Repeat the previous two steps 4 more times to collect data on the next four games.
+
+     //todo   Use the join() method and the document.write method to write all the opponents and scores to the page.
+      document.write("<h3>My Favorite team is"+favTeam+"</h3>");
+      document.write(opponents.join(",")+"<br>");
+      document.write(scores.join(","));
+      document.write("Week:"+scores.length);
+
+     // todo  Use the array length poperty and the document.write method  to print the current week of the season to the page.
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Week 7 Part 2 Solution</title>
+	<style type="text/css">
+		div.wrapper {width: 500px; margin: 0 auto;}
+		img {float: right;}
+		footer {width: 500px; margin-top: 50px; text-align: center;}
+		footer ul {list-style-type: none;}
+		footer ul li {display: inline-block;}
+	</style>
+	<script src="jquery-1.10.2.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// declare a global variable named imgFooter and set the value to empyt quotes.
+			var imgFooter="";
+			/*
+                The following is a loop where you select all the image tags nested in a div class="main" having
+                a source that includes "images/lg".
+                See line 11 of MM textbook tutorial bibliography.html for a similar example.
+            */
+			$('.main img').each(function() { // start loop
+				/*
+                Declare a variable named imgSrc and set it equal to the value of the image source attribute.
+                See line 13 of bibliography.html for a similar example
+                */
+				var imgSrc=$(this).attr('src');
+				imgSrc = imgSrc.replace("lg","sm");
+
+				// Rename the "lg" portion of the image name to "sm" using the javascript replace method.
+				// http://www.w3schools.com/jsref/jsref_replace.asp
+
+				//Declare a variable named altVal and set it equal to the value of the image alt attribute.
+				//See line 13 of bibliography.html for a similar example
+				var altVal=$(this).attr('alt');
+
+				//Declare a variable named altId and set it equal to the value of the image alt attribute.
+				//See line 13 of bibliography.html for a similar example
+				var imgId=$(this).attr('id');
+
+
+
+				imgFooter+='<li><a href="#'+imgId+'"><img alt="'+altVal+'" src="'+imgSrc+'"></a></li>\t'
+
+				// See the following comment for the string you are trying to build.
+
+			}); // end each
+
+
+			// Variable imgFooter is being cast to Boolean. Any non-empty string evaluates to true.
+			if (imgFooter) {
+				// append imgFooter to the ul nested in the footer tag.
+
+				$(imgFooter).appendTo($('footer ul'));
+			}
+
+		}); // end ready
+	</script>
+</head>
+<body>
+<div class="wrapper">
+	<header>
+		<h1>Week 7 Part 2 Project</h1>
+	</header>
+
+	<div class="main">
+
+		<p>
+			<img src="images/lg_a.gif" alt="a" id="a">
+			Ja, vee could really do it, Lebowski. Dolor sit amet, consectetur. And so, Theodore Donald Karabotsos, in accordance with what we think your dying wishes might well have been, we commit your mortal remains to the bosom of the Pacific Ocean, which you loved so well. Adipiscing elit praesent ac magna justo pellentesque ac lectus quis elit. Walter, you can't do that. These guys're like me, they're pacifists. Smokey was a conscientious objector. Blandit fringilla a ut turpis praesent felis ligula.
+		</p>
+
+		<p>
+			<img src="images/lg_b.gif" alt="b" id="b">
+			You're just looking for a handout like every other. Are you employed, Mr. Lebowski? Malesuada suscipit malesuada non, ultrices non urna sed orci ipsum, placerat id condimentum. That wasn't her toe. Rutrum, rhoncus ac lorem. Donny was a good bowler, and a good man. He was… He was one of us. He was a man who loved the outdoors, and bowling, and as a surfer explored the beaches of southern California from Redondo to Calabassos. And he was an avid bowler. And a good friend. He died—he died as so many of his generation, before his time. In your wisdom you took him, Lord. As you took so many bright flowering young men, at Khe San and Lan Doc. Aliquam placerat posuere neque, at dignissim magna ullamcorper in aliquam.
+		</p>
+
+		<p>
+			<img src="images/lg_c.gif" alt="c" id="c">
+			Excuse me! Mark it zero. Next frame. Sagittis massa ac tortor ultrices faucibus curabitur eu mi sapien, ut ultricies ipsum. Your "revolution" is over, Mr. Lebowski! Condolences! The bums lost! Morbi eget risus nulla. Lady, I got buddies who died face-down in the mud so you and I could enjoy this family restaurant! Nullam vel nisi enim, vel auctor ante morbi id urna vel felis. We wanted to talk about little Larry. May we come in? Lacinia placerat vestibulum turpis.
+		</p>
+
+		<p>
+			<img src="images/lg_d.gif" alt="d" id="d">
+			Uh, yeah. Probably a vagrant, slept in the car. Or perhaps just used it as a toilet, and moved on. Nulla, viverra nec volutpat. HERE'S WHAT HAPPENS, LARRY! Ac, ornare id lectus cras pharetra faucibus. 1972 Pontiac LeBaron. Tristique nullam non accumsan. Larry. May we come in? Lacinia placerat vestibulum turpis. Justo nulla facilisi integer interdum elementum nulla, nec eleifend nisl euismod ac.
+		</p>
+
+	</div>
+	<footer>
+		<ul></ul>
+	</footer>
+</div>
+
+</body>
+</html>

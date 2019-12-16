@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>nav menu</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="../../_js/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" >
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="jquery.smartmenus.min.js"></script>
+	<link rel="stylesheet" href="sm-blue.css">
+	<link rel="stylesheet" href="sm-core-css.css">
+	<link rel="stylesheet" href="sm-mint.css">
+	<link rel="stylesheet" href="sm-simple.css">
+	<script>
+		// SmartMenus init
+		$(function() {
+			$('#main-menu').smartmenus({
+				mainMenuSubOffsetX: -1,
+				mainMenuSubOffsetY: 4,
+				subMenusSubOffsetX: 6,
+				subMenusSubOffsetY: -6
+			});
+		});
+
+		// SmartMenus mobile menu toggle button
+		$(function() {
+			var $mainMenuState = $('#main-menu-state');
+			if ($mainMenuState.length) {
+				// animate mobile menu
+				$mainMenuState.change(function(e) {
+					var $menu = $('#main-menu');
+					if (this.checked) {
+						$menu.hide().slideDown(250, function() { $menu.css('display', ''); });
+					} else {
+						$menu.show().slideUp(250, function() { $menu.css('display', ''); });
+					}
+				});
+				// hide mobile menu beforeunload
+				$(window).bind('beforeunload unload', function() {
+					if ($mainMenuState[0].checked) {
+						$mainMenuState[0].click();
+					}
+				});
+			}
+		});
+		$(document).ready(function() {
+			$('.sm').smartmenus({
+				showFunction: function($ul, complete) {
+					$ul.slideDown(250, complete);
+				},
+				hideFunction: function($ul, complete) {
+					$ul.slideUp(250, complete);
+				}
+			});
+		}); // end ready
+	</script>
+</head>
+<body >
+<div class="wrapper">
+	<header class="row ">
+		<h1>smart menu </h1>
+	</header>
+	<div class="content">
+		<div class="main row ">
+<ul id="nav" class="sm sm-simple row  " style="display: inline-flex;">
+
+	<li class="col"><a href="#">Percoidei</a>
+		<ul>
+			<li><a href="#">Remoras</a>
+				<ul>
+					<li><a href="#">Echeneis</a>
+						<ul>
+							<li><a href="#">Sharksucker</a></li>
+							<li><a href="#">Whitefin Sharksucker</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Phtheirichthys</a>
+						<ul>
+							<li><a href="#">Slender Suckerfish</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Remora</a>
+						<ul>
+							<li><a href="#">Whalesucker</a></li>
+							<li><a href="#">Spearfish remora</a></li>
+							<li><a href="#">Marlinsucker</a></li>
+							<li><a href="#">Remora</a></li>
+							<li><a href="#">Ceylonese remora</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Remorina</a>
+						<ul>
+							<li><a href="#">White suckerfish</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Rhombochirus</a>
+						<ul>
+							<li><a href="#">R. osteochir</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li><a href="#">Tilefishes</a>
+				<ul class="sm-vertical sm">
+					<li><a href="#">Caulolatilus</a></li>
+					<li><a href="#">Lopholatilus</a></li>
+					<li><a href="#">Malacanthus</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Bluefishes</a>
+				<ul class="sm-vertical sm">
+					<li><a href="#">Pomatomus</a></li>
+					<li><a href="#">Scombrops</a></li>
+					<li><a href="#">Sphyraenops</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Tigerfishes</a>
+				<ul class="sm-vertical sm">
+					<li><a href="#">Amniataba</a></li>
+					<li><a href="#">Bidyanus</a></li>
+					<li><a href="#">Hannia</a></li>
+					<li><a href="#">Hephaestus</a></li>
+					<li><a href="#">Lagusia</a></li>
+					<li><a href="#">Leiopotherapon</a></li>
+					<li><a href="#">Mesopristes</a></li>
+					<li><a href="#">Pelates</a></li>
+					<li><a href="#">Pelsartia</a></li>
+					<li><a href="#">Pingalla</a></li>
+					<li><a href="#">Rhyncopelates</a></li>
+					<li><a href="#">Scortum</a></li>
+					<li><a href="#">Syncomistes</a></li>
+					<li><a href="#">Terapon</a></li>
+				</ul>
+			</li>
+
+		</ul>
+	</li>
+
+	<li class="col"><a href="#">Anabantoidei</a>
+		<ul >
+			<li><a href="#">Climbing perches</a>
+				<ul>
+					<li><a href="#">Anabas</a></li>
+					<li><a href="#">Ctenopoma</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Labyrinthfishes</a>
+				<ul>
+					<li><a href="#">Belontia</a></li>
+					<li><a href="#">Betta</a></li>
+					<li><a href="#">Colisa</a></li>
+					<li><a href="#">Macropodus</a></li>
+					<li><a href="#">Malpulutta</a></li>
+					<li><a href="#">Parosphromenus</a></li>
+					<li><a href="#">Sphaerichthys</a></li>
+					<li><a href="#">Trichogaster</a></li>
+					<li><a href="#">Trichopsis</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Kissing gouramis</a></li>
+			<li><a href="#">Pike-heads</a></li>
+			<li><a href="#">Giant gouramis</a></li>
+
+		</ul>
+	</li>
+
+	<li class=" col"><a href="#">Gobioidei</a>
+		<ul>
+			<li><a href="#">Burrowing gobies</a></li>
+			<li><a href="#">Dartfishes</a></li>
+			<li><a href="#">Eellike gobies</a></li>
+			<li><a href="#">Gobies</a></li>
+			<li><a href="#">Loach gobies</a></li>
+			<li><a href="#">Odontobutidae</a></li>
+			<li><a href="#">Sandfishes</a></li>
+			<li><a href="#">Schindleriidae</a></li>
+			<li><a href="#">Sleepers</a></li>
+			<li><a href="#">Xenisthmidae</a></li>
+		</ul>
+	</li>
+
+</ul>
+		</div>
+		</div>
+		</div>
+
+</body>
+</html>

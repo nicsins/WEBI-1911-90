@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery animate demo</title>
+    <script src="jquery-1.10.2.min.js"></script>j
+    <script src="jquery.easing.1.3.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#div1 img').hover(
+                function () {
+                    //on mouse over
+                   // $('this').stop().animate({opacity:.5,borderRadius: 10}) ;
+                    //add speed
+                 //   $('this').stop().animate({opacity:.5,borderRadius: 10}, 200) ;
+                    $(this).stop().animate({opacity:.5,borderRadius: 10},
+                        200,
+                        function () {
+                        var imgAlt='<span>'+$(this).attr('alt')+'</span>';
+                        $(imgAlt).appendTo($('#div2'))
+                    }) ;
+                },
+                function () {
+                   //mouseout
+                 //   $('this').stop().animate({opacity:.1,borderRadius: 0}) ;
+                    //add speed
+                 //   $('this').stop().animate({opacity:.1,borderRadius: 0},100) ;
+                    $(this).stop().animate({opacity:.1,borderRadius: 0},
+                        100,
+                    function () {
+                        $('#div2').find('span:first').remove();
+                    }) ;
+                }
+            );
+        });
+
+        // good example
+        $('div img').mouseenter(function(){
+            $(this).css("border", "0px solid #f37736").animate({
+                'borderWidth': '4px',
+                'borderColor': '#f37736'
+            },500);
+        }).mouseleave(function(){
+            $(this).animate({
+                'borderWidth':'0px',
+                'borderColor':'#f37736'
+            },500);
+        });
+
+
+    </script>
+    <style>
+       img{
+           border:4px solid gray
+       }
+
+    </style>
+</head>
+<body>
+
+<div id="div1">
+    <img  class="u" src="images/u.jpg" alt="hello letter u">
+    <img class="v" src="images/v.jpg" alt="hello letter v">
+    <img class="w" src="images/w.jpg" alt="hello letter w">
+    <img class="x" src="images/x.jpg" alt="hello letter x">
+    <div id="div2">
+
+    </div>
+</div>
+
+
+</body>
+</html>

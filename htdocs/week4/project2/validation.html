@@ -31,10 +31,10 @@
             if (document.getElementById('comments').value==""){
                 error==' PLease enter your comments\n'
             }
-            if (document.getElementById('free').selectedIndex==-1){
+            if (!document.getElementsByClassName('radios').checked){
                 error +=' PLease enter your terms \n'
             }
-            if (document.getElementById('terms').checked==true){
+            if (!document.getElementById('terms').checked==true){
                 error+=' PLease check that you agree\n'
             }
 
@@ -121,8 +121,10 @@ display: inline;
 <li><label>Subscription</label> <label for="free" class="radios">Free</label>
 <input type="radio" name="subscription" id="free"/>
 
-<label for="paid" class="radios">Paid</label>
-<input type="radio" name="subscription" id="paid"/>
+<label for="basic" class="radios">Basic</label>
+<input type="radio" name="subscription" id="basic"/>
+    <label for="premium" class="radios">Premium</label>
+<input type="radio" name="subscription" id="premium"/>
 </li>
 
 <li>
