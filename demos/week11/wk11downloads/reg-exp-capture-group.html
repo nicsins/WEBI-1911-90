@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Regular Expressioin Capture Groups</title>
+	<script type="text/javascript">
+		var num="11222333";
+
+		// This regex captures the last 3 digits as capture group #2
+		// and all preceding digits as capture group #1
+		// + matches 1 or more occurrences of the character before (\d{3}).
+		// So this regular expression (\d+) would match 11222 when testing var 11222333 
+		var re = /(\d+)(\d{3})/;
+
+		var regExp = re.test(num);
+
+		// The test returns true
+		document.write(regExp);
+
+		// This replace call replaces the match of the regex (which happens
+		// to match everything) with the first capture group ($1) followed by
+		// a comma, followed by the second capture group ($2)
+		var result = num.replace(re, "$1,$2");
+
+		document.write(result);
+		// result is 11222,333 
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

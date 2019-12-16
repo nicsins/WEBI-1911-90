@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>A Simple Quiz</title>
+<link href="../site.css" rel="stylesheet">
+<script>
+var score=0;
+var questions= [
+ ['How many moons does mercury have?',0, 1],
+	['How many moons does Venus have?', 0,1],
+ ['How many moons does Earth have?', 1,2],
+ ['How many moons does mars have?',2,2],
+ ['How many moons does jupiter have?',63,6],
+ ['How many moons does Saturn have?',31,4],
+ ['How many moons does uranus have?',21,5],
+ ['How many moons does neptune have?',8,3],
+ ['How many moons does pluto have?',3,1],
+
+];
+
+// here the argument "question" is a single row of the questions array.
+function askQuestion(question) {
+ var answer = prompt(question[0],'');
+    if (answer == question[1]) {
+        alert('Correct! \n your score is '+ score);
+        score=score+question[2];
+
+    }else if ( answer !=question[1] &&(answer == question[1])+1 ||	answer==(question[1]-1)){
+    	alert("you were only 1 away \n The correct answer is " + question[1] +"\n your score is "+ score);
+		score =(question[2]* Number(.5)) + score;
+	} else {
+        alert('Sorry. The correct answer is ' + question[1]);
+    }
+}
+
+// pass each row of the questions array to askQuestion function
+for (var i=0; i<questions.length; i++) {
+ askQuestion(questions[i]);
+}
+
+</script>
+</head>
+
+<body>
+<div class="wrapper">
+<div class="header">
+	<p class="logo">JavaScript <i>&</i> jQuery <i class="mm">The<br>Missing<br>Manual</i></p>
+</div>
+<div class="content">
+	<div class="main">
+<h1>A Simple Quiz</h1>
+		<script>
+		var message = 'You got ' + score;
+		message += ' out of ' + questions.length;
+		message += ' questions correct.';
+		document.write('<p>' + message + '</p>');
+		</script> </div>
+</div>
+<div class="footer">
+<p>JavaScript &amp; jQuery: The Missing Manual, by <a href="http://sawmac.com/">David McFarland</a>. Published by <a href="http://oreilly.com/">O'Reilly Media, Inc</a>.</p>
+</div>
+</div>
+</body>
+</html>

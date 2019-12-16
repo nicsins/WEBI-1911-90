@@ -1,0 +1,37 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Radio Button Validation</title>
+    <script>
+        function validate() {
+            // alert("hello");
+            var sandwichlist = document.forms[0].sandwich;
+            var valid = false;
+            for(var i=0; i<sandwichlist.length; i++) {
+                if(sandwichlist[i].checked) {
+                    valid = true;
+                    break;
+                }
+            }
+
+            if(valid) {
+                alert("We can do that!");
+            }
+            else {
+                alert("Please choose a radio button.");
+            }
+        }
+    </script>
+</head>
+<body>
+<p>How would you like your sandwich?</p>
+    <!--form>input:radio*3+input:submit-->
+    <form action="">
+        un-toasted: <input type="radio" name="sandwich" value="un-toasted" id="un-toasted">
+        toasted: <input type="radio" name="sandwich" value="toasted" id="toasted">
+        deep-fried: <input type="radio" name="sandwich" value="deep-fried" id="deep-fried">
+        <input type="submit" value="submit" onclick="validate();">
+    </form>
+</body>
+</html>

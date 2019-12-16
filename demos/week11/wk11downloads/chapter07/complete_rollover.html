@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Rollover Images</title>
+<link href="../_css/site.css" rel="stylesheet">
+<style>
+#gallery img {
+	display: inline-block;
+	margin: 10px;
+	border: 1px solid rgb(0,0,0);
+}
+</style>
+<script src="../_js/jquery.min.js"></script>
+
+<script>
+$(document).ready(function() {
+/*
+The following each function iterates all images nested in the div id=gallery and sets hover events.
+ex. default = blue.gif and hover = blue_h.gif see file naming conventions in images folder for this example.
+*/
+ $('#gallery img').each(function() {
+ 	// Get the path to the image.
+	var imgFile = $(this).attr('src');
+	// Create a new image object for the mouseover image.
+	var preloadImage = new Image();
+	/*
+	This is a regular expression. It describes a pattern of .xxx or .xxxx so it will find .gif, .png, .jpeg, jpg...
+	*/
+  	var imgExt = /(\.\w{3,4}$)/;
+  	/*
+	The goal is to build the hover image file name based on the thumbnail image that was clicked.
+	logic:
+	preloadImage.src = ../_images/small/green.jpg.replace(.jpg,_h.jpg);
+	result:
+	preloadImage.src = ../_images/small/green_h.jpg
+
+	See reg-exp-capture-group.html
+  	*/
+ 	 preloadImage.src = imgFile.replace(imgExt,'_h$1');
+
+ 	 /*
+	The each() function iterates all imgs nested in the #gallery div.
+	This creates hover events for all images and preloads the non-default images.
+ 	 */
+		
+	$(this).hover(
+		function() {
+			$(this).attr('src', preloadImage.src);
+		},
+		function () {
+			$(this).attr('src', imgFile);
+		}
+	); // end hover
+}); // end each
+}); // end ready
+</script>
+</head>
+<body>
+<div class="wrapper">
+<header>
+    JAVASCRIPT <span class="amp">&amp;</span> jQUERY: THE&nbsp;MISSING&nbsp;MANUAL
+</header>
+<div class="content">
+	<div class="main">
+		<h1>Rollover Images</h1>
+		<p>Mouse over the images below</p>
+		<div id="gallery"> <a href="../_images/large/blue.jpg"><img src="../_images/small/blue.jpg" width="70" height="70" alt="blue"></a> <a href="../_images/large/green.jpg"><img src="../_images/small/green.jpg" width="70" height="70" alt="green"></a> <a href="../_images/large/orange.jpg"><img src="../_images/small/orange.jpg" width="70" height="70" alt="orange"></a> <a href="../_images/large/purple.jpg"><img src="../_images/small/purple.jpg" width="70" height="70" alt="purple"></a> <a href="../_images/large/red.jpg"><img src="../_images/small/red.jpg" width="70" height="70" alt="red"></a> <a href="../_images/large/yellow.jpg"><img src="../_images/small/yellow.jpg" width="70" height="70" alt="yellow"></a></div>
+	</div>
+</div>
+<footer>
+    <p>JavaScript &amp; jQuery: The Missing Manual, 3rd Edition, by <a href="http://sawmac.com/">David McFarland</a>. Published by <a href="http://oreilly.com/">O'Reilly Media, Inc</a>.</p>
+</footer>
+</div>
+</body>
+</html>

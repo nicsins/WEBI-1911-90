@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jquery demo</title>
+<style type="text/css">
+#div1
+{
+	background: blue;
+	width: 300px;
+	height: 150px;
+}
+.border {border: 3px solid black;}
+img {float: left;}
+</style>
+<script src="../wk8downloads/jquery-1.10.2.min.js"></script>
+	<!--<script  src="wk8demo.html"></script>-->
+<script type="text/javascript">
+$(document).ready(function()
+{
+	$('#one').click(function () {
+		// $('#div1').fadeOut(3000)
+		// $('#div1').slideUp(3000)
+		// $('#div1').hide(3000)
+		$('#div1').toggleClass('border')
+
+	});
+	$('#two').click(function () {
+		// $('#div1').fadeIn(3000)
+		// $('#div1').slideDown(3000)
+		// $('#div1').show(3000)
+	});
+	var letterA={imgX:'lg_a.gif',altX:'a'};
+	var letterB={imgX:'lg_b.gif',altX:'b'};
+	var letterC={imgX:'lg_c.gif',altX:'c'};
+	var letterD={imgX:'lg_d.gif',altX:'d'};
+
+	$('ltrA').on('click',letterA,showImage);
+	$('ltrB').on('dblclick',letterB,showImage);
+	$('ltrC').on('mouseover',letterC,showImage);
+	$('ltrD').on('mouseout',letterD,showImage);
+
+
+
+	function showImage(evt) {
+		theImg='<img src="images/'+evt.data.imgX +'" alt="'+ evt.data.altX +'" >';
+		$(theImg).appendTo($('#div2'))
+
+	}
+	$('#clear_all').click(function () {
+		$('#div2').empty()
+	})
+
+
+
+
+});
+
+</script>
+
+</head>
+
+<body>
+<div id="div1"></div>
+<div><a href="#" id="one">Click 1</a></div>
+<div><a href="#" id="two">Click 2</a></div>
+
+<form>
+	<input type="button" id="ltrA" value="Show Letter A">
+	<input type="button" id="ltrB" value="Show Letter B">
+	<input type="button" id="ltrC" value="Show Letter C">
+	<input type="button" id="ltrD" value="Show Letter D">
+	<input type="button" id="clear_all" value="Clear All">
+</form>
+
+<div id="div2"></div>
+
+
+
+
+</body>
+</html>

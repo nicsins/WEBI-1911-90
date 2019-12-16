@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gallery</title>
+<link href="../_css/site.css" rel="stylesheet">
+<style>
+#gallery {
+	float: left;
+	width: 90px;
+	margin-right: 30px;
+	margin-left: 10px;
+	border-right: white 1px dotted;	
+}
+#gallery img {
+	display: inline-block;
+	margin: 0 0 10px 0;
+	border: 1px solid rgb(0,0,0);
+}
+#photo {
+	margin-left: 150px;	
+	position: relative;
+}
+#photo img {
+	position: absolute;	
+}
+
+</style>
+<script src="../_js/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	// cn - setup mouseover hover events just like complete_rollover.html
+	// #gallery img queries all the thumbnail images nested in div id=gallery
+	// Get the value of the src attribute for the default (non-hover) thumbnail image		
+$('#gallery img').each(function(i) {
+	var imgFile = $(this).attr('src');
+	// Create a new image object for the hover image.
+	var preloadImage = new Image();
+	// Create a reg exp that matches a . and the following 3 or 4 characters of a string
+  var imgExt = /(\.\w{3,4}$)/;
+  // Replace the image extention of the default thumbnail with _h.jpg
+  preloadImage.src = imgFile.replace(imgExt,'_h$1');
+		
+	$(this).hover(
+		function() {
+			$(this).attr('src', preloadImage.src);
+		},
+		function () {
+		var currentSource=$(this).attr('src');
+			$(this).attr('src', imgFile);
+	}); // end hover
+}); // end each
+	
+	$('#gallery a').click(function(evt) {
+		// cn - functions that are executed in response to an event, automatically have the
+				// event object passed to them. here evt is click.
+				//alert(evt.type.toString());
+				//preventDefault() is a method of the click event object. This prevents the default link from opening when clicked. We don't want the large image to open in it's own window.
+		 evt.preventDefault();
+		 //get path to new image
+		 		 // cn - the href attribute holds the path to the large image.
+	   var imgPath = $(this).attr('href');
+		//get reference to the image that is currently appended to the div with an id=photo
+		 var oldImage = $('#photo img');
+		 			
+			 //create HTML for new image large
+			 var newImage = $('<img src="' + imgPath +'">');
+			 //make the new image invisible so we can fade it in.
+			 newImage.hide();
+			 //add the newImage to the #photo div
+			 
+			  /*
+			 The .prepend() method inserts the specified content as the first child of the selected element(s). 
+			  */
+			 $('#photo').prepend(newImage);
+			 //fade in new image
+			 newImage.fadeIn(1000);
+			 
+			 //fade out old image and remove from DOM
+			 oldImage.fadeOut(1000,function(){
+		     $(this).remove();
+				});		 
+	}); // end click
+	// cn - This fires the click event above on page load.	
+	$('#gallery a:first').click();
+}); // end ready
+</script>
+</head>
+<body>
+<div class="wrapper">
+<header>
+    JAVASCRIPT <span class="amp">&amp;</span> jQUERY: THE&nbsp;MISSING&nbsp;MANUAL
+  </header>
+
+
+<div class="content">
+	<div class="main">
+		<h1>Gallery</h1>
+		<div id="gallery"> <a href="../_images/large/slide1.jpg"><img src="../_images/small/slide1.jpg" width="70" height="70" alt="golf balls"></a> <a href="../_images/large/slide2.jpg"><img src="../_images/small/slide2.jpg" width="70" height="70" alt="rock wall"></a> <a href="../_images/large/slide3.jpg"><img src="../_images/small/slide3.jpg" width="70" height="70" alt="old course"></a> <a href="../_images/large/slide4.jpg"><img src="../_images/small/slide4.jpg" width="70" height="70" alt="tees"></a> <a href="../_images/large/slide5.jpg"><img src="../_images/small/slide5.jpg" width="70" height="70" alt="tree"></a> <a href="../_images/large/slide6.jpg"><img src="../_images/small/slide6.jpg" width="70" height="70" alt="ocean course"></a></div>
+		<div id="photo"></div>
+	</div>
+</div>
+<footer>
+    <p>JavaScript &amp; jQuery: The Missing Manual, 3rd Edition, by <a href="http://sawmac.com/">David McFarland</a>. Published by <a href="http://oreilly.com/">O'Reilly Media, Inc</a>.</p>
+</footer>
+</div>
+</body>
+</html>

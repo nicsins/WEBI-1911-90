@@ -31,6 +31,7 @@ $(document).ready(function() {
             var info = $('#info').val();
             var city = $('#city').val();
             var state = $('#state').val();
+            var activities=$('#activities').val();
 
             $(".error").remove();
 
@@ -65,9 +66,19 @@ $(document).ready(function() {
             var PhoneRegEx = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
             var validEPhone = PhoneRegEx.test(phone);
             if (!validEPhone) {
-                $('#phone').after('<span class="error">Enter a valid l</span>');
+                $('#phone').after('<span class="error">Enter a valid phone number</span>');
         }
-            if(info.ischecked)
+            if(!info.checked){
+                $('#activities').hide(this);
+            }
+            else {
+                $(activities).slideDown(this);
+            }
+            if(!activities.checked.onsubmit <1){
+                $('#activities').after('<span class="error">please check one of these items</span>')
+            }
+            }
+            }
 
 
     });

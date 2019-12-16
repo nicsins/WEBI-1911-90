@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Loop and Array</title>
+</head>
+<body>
+<script>
+    var theNames = ["Jack","John","Sue","Mary","Jill"];
+
+    for(var i=0; i<theNames.length; i++) {
+        document.write(theNames[i] + "<br>");
+    }
+
+    var nameList = new Array(4);
+
+    for(i=0; i<nameList.length; i++) {
+        nameList[i] = window.prompt("Enter a name","");
+
+    }
+
+    for(i=0; i<nameList.length; i++) {
+        document.write(nameList[i] + "<br>");
+    }
+
+</script>
+</body>
+</html>

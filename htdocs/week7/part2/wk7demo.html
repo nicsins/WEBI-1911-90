@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Week 7 Demo</title>
+	<style type="text/css">
+		.myalert {color: red;}
+	</style>
+	<!--<script src="jquery-1.10.2.min.js"></script>-->
+	<!--
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>-->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('h1').css('color','red');
+			$('#myid').css('color','blue');
+			$('h1.myclass').css('color','green');
+			$('h1.myclass2').css('color','green').fadeOut(5000);
+			$('li:first').addClass('myalert');
+			//partial class selection
+			$('#myList li[class^="myL"]').each(function () {
+				$(this).css('text-decoration','underline')
+			});
+			//  this does the same thing $('#myList li[class^="myL"]').css('text-decoration','underline')
+			$('#myList li').each(function () {
+				$('#result').html( $('#result').html()+ '<br>' + $(this).text());
+
+			});
+			//better
+			var mydiv = $('#result2');
+			$('#myList li').each(function () {
+			mydiv.html( mydiv.html()+ '<br>' + $(this).text());
+			});
+			//best
+			var result="";
+			$('#myList li').each(function () {
+				result+= '<br>' + $(this).text();
+			});
+			$('#result3').html(result);
+
+
+
+
+		})
+
+	</script>
+
+
+</head>
+<body>
+<!-- apply css using jquery -->
+<h1>Style with jQuery by Selecting Element</h1>
+<h1 id="myid">Style with jQuery by Selecting id</h1>
+<h1 class="myclass">Style with jQuery by Selecting class</h1>
+<h1 class="myclass2">Style with jQuery by Chaining JQ Methods</h1>
+
+<!-- apply css using addClass method. -->
+<ul>
+<li>item 1</li>
+<li>item 2</li>
+<li>item 3</li>
+<li>item 4</li>
+<li>item 5</li>
+<li>item 6</li>
+<li>item 7</li>
+</ul>
+
+<!-- use each function -->
+<ul id="myList">
+<li class="myListItem">item 1</li>
+<li>item 2</li>
+<li>item 3</li>
+<li class="myListItem">item 4</li>
+<li>item 5</li>
+<li>item 6</li>
+<li class="myListItem">item 7</li>
+</ul>
+
+
+<div id="result"></div>
+<div id="result2"></div>
+<div id="result3"></div>
+<!-- using jquery ui library -->
+<form>
+	<p>Date: <input type="text" id="datepicker" /></p>
+</form>
+</body>
+</html>
